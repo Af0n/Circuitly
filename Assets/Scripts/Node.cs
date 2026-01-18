@@ -4,8 +4,10 @@ public class Node : MonoBehaviour
 {
     [Tooltip("Nodes where the flow of sparks come into from")]
     public Node[] InNodes;
+
     [Tooltip("Nodes where the flow of sparks goes out to")]
     public Node[] OutNodes;
+
     [Tooltip("Can also be considered as a 'CanTraverse' flag")]
     public bool IsClosed;
     
