@@ -1,12 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class Node : MonoBehaviour
 {
     [Tooltip("Nodes where the flow of sparks come into from")]
-    public Node[] InNodes;
+    public ArrayList InNodes;
 
     [Tooltip("Nodes where the flow of sparks goes out to")]
-    public Node[] OutNodes;
+    public ArrayList OutNodes;
 
     [Tooltip("Can also be considered as a 'CanTraverse' flag")]
     public bool IsClosed;
@@ -24,5 +25,61 @@ public class Node : MonoBehaviour
             }
             return count;
         }
+    }
+
+    private void Awake()
+    {
+        // initialize fields
+        InNodes = new();
+        OutNodes = new();
+    }
+
+    public void AddNode(Node n, bool isIn)
+    {
+        // section for adding to InNodes
+        if (isIn)
+        {
+            // don't add node if it already is in list
+            if (InNodes.Contains(n))
+            {
+                return;
+            }
+
+            // nodes can only be in or out, not both
+            if (OutNodes.Contains(n))
+            {
+                return;
+            }
+
+            InNodes.Add(n);
+            return;
+        }
+
+        // section for adding to OutNodes
+
+        // don't add node if it already is in list
+        if (OutNodes.Contains(n))
+        {
+            return;
+        }
+
+        // nodes can only be in or out, not both
+        if (InNodes.Contains(n))
+        {
+            return;
+        }
+
+        OutNodes.Add(n);
+    }
+
+    public void RemoveNode(Node n, bool isIn)
+    {
+        if (isIn)
+        {
+            InNodes.Remove(n);
+            return;
+        }
+
+        OutNodes.Remove(n);
     }
 }
