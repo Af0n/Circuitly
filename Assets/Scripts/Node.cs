@@ -42,12 +42,14 @@ public class Node : MonoBehaviour
             // don't add node if it already is in list
             if (InNodes.Contains(n))
             {
+                Debug.Log($"{name} already contains {n.name} in InNodes");
                 return;
             }
 
             // nodes can only be in or out, not both
             if (OutNodes.Contains(n))
             {
+                Debug.Log($"{name} already contains {n.name} in OutNodes");
                 return;
             }
 
@@ -60,12 +62,14 @@ public class Node : MonoBehaviour
         // don't add node if it already is in list
         if (OutNodes.Contains(n))
         {
+            Debug.Log($"{name} already contains {n.name} in OutNodes");
             return;
         }
 
         // nodes can only be in or out, not both
         if (InNodes.Contains(n))
         {
+            Debug.Log($"{name} already contains {n.name} in InNodes");
             return;
         }
 

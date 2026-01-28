@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class NodeTest : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Node TestA, TestB;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        TestA.AddNode(TestB, true);
+
+        Debug.Log(TestA.InNodes[0]);
+        TestA.AddNode(TestB, true);
     }
 }
