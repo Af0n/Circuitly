@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class Connection : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    // two nodes that make up the connection
+    public Node NodeA;
+    public Node NodeB;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // normal flow is NodeA -> NodeB
+    public bool IsReversed;
+
+    // true = traversable, false = cannot
+    public bool IsClosed;
 }
